@@ -1,16 +1,20 @@
 \documentclass{article}
 \title{Numerical Methods - Project 1}
-\author{Thomas Simcox}
+\author{Thomas Simcox (Group 18)}
 \date{October, 2021}
 
-\usepackage{amsmath, amsfonts, amsthm, amssymb, fancyvrb, listings}
+\usepackage{amsmath, amsfonts, amsthm, amssymb, fancyvrb, listings, hyperref}
 \usepackage[margin=1in]{geometry}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue
+}
 
 \begin{document}
     \maketitle
 
     \section*{1a. Cholesky Factorization Algorithm}
-    My Cholesky Factorization algorithm can be found on Github at the following link: [insert link here].\bigbreak
+    \fbox{ My full Cholesky Factorization \texttt{.jl} file can be found on Github at the following link: \href{https://github.com/TommySimcox/Math466Cholesky/blob/main/chol.jl}{Link to my GitHub} }\bigbreak
     My algorithm is written in Julia, and consists of just one function called \texttt{chol()}, which calls one auxilary
     function I wrote called \texttt{isPositiveDefinite()} which returns a \texttt{Bool} based on whether or not a passed in matrix 
     is postive-definite. Below is a code snippet of my \texttt{chol()} function:
@@ -49,7 +53,7 @@
     \end{Verbatim}
 
     As shown in the function's signature, I decided to take advantage of Julia's type narrowing capabilities and restricted the 
-    function's argument to be of type \texttt{Matrix{Int64}}. And, I made sure that the function will return a \texttt{Matrix{Float64}}, or \texttt{Nothing}.
+    function's argument to be of type \texttt{Matrix{Int64}}. Similarly, I made sure that the function will return a \texttt{Matrix{Float64}}, or \texttt{Nothing}.
     I specified this union return type because if the passed in matrix is not positive definite, I return a \texttt{prinln()}, and otherwise,
     I return the matrix factorization \texttt{U}.
 
@@ -150,7 +154,7 @@
 
 
 
-    \section*{1e. Julia REPL outputs for matrices in \texttt{prog1c.dat}}
+    \section*{1e. Julia REPL Outputs For Matrices in \texttt{prog1c.dat}}
     \subsection*{(Skipping ones that are not pos-def per instructions)}
     \bigbreak
     I hard-coded the matrices in the above file, but here's the method I wrote for displaying the result of the \texttt{cholesky()} 
